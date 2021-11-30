@@ -49,7 +49,7 @@ for zone_id in range(number_of_polys):
             path2 = str((b * div1) + (c * div2)) + "-" + str(((b * div1) + (c * div2) + div2))
 
             data = os.path.abspath(
-                "SP_24_06_Whole/SPPerLinks/" + path1 + "/" + path2 + "/" + str(id) + "/SPInfo.txt")
+                "D:/DATA_/samo_profili/SP_24_06_Whole/SPPerLinks/" + path1 + "/" + path2 + "/" + str(id) + "/SPInfo.txt")
             #print(data)
             try:
                 if os.path.getsize(data) > 0:
@@ -76,7 +76,7 @@ for zone_id in range(number_of_polys):
                             l = []
                             l = profil[index].split("_")
                             if l[2] == "SP":
-                                putanja = os.path.abspath("SP_24_06_Whole/SPPerLinks/" + path1 + "/" + path2 + "/" + str(id) + "/" + profil[index])
+                                putanja = os.path.abspath("D:/DATA_/samo_profili/SP_24_06_Whole/SPPerLinks/" + path1 + "/" + path2 + "/" + str(id) + "/" + profil[index])
                                 df = pd.read_csv(putanja, delimiter = "\t")
                                 """Matrica 198 x 14 jer su 5 min intevali od 5:30 do 22:00 a 14 jer su to brzine za oba smjera"""
                                 dataFrame[str(index)]=df.REL
