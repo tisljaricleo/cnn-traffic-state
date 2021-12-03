@@ -6,17 +6,40 @@ from tensorflow.keras import datasets, layers, models
 import matplotlib.pyplot as plt
 import os
 import numpy as np
+import pickle
+
+
+def open_pickle(path):
+    """Opens pickle data from defined path
+    :param path: Path to pickle file
+    :type path: str
+    :return:
+    """
+    try:
+        with open(path, 'rb') as handle:
+            data = pickle.load(handle)
+            return data
+    except Exception as e:
+        if hasattr(e, 'message'):
+            print(e.message)
+            return None
+        else:
+            print(e)
+            return None
 
 
 def get_data_paths(data_dir: str):
     dp = []
     for file in os.listdir(data_dir):
-        if file.endswith(".npy"):
+        if file.endswith(".pkl"):
             dp.append(os.path.join(data_dir, file))
     return dp
 
 
 data_paths = get_data_paths("result_data")
+
+data_x = open_pickle(data_paths[0])
+
 
 tensor_data = np.zeros((len(data_paths), 198, 14, 3))
 labels = np.zeros((len(data_paths), 1))
