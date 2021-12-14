@@ -2,3 +2,5 @@
 venv
 __pychache__
 result_data
+X_test.pkl
+y_test.pkl
